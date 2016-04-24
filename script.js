@@ -24,8 +24,7 @@ function Controller(model) {
             
             //function to add to array of objects
             //function to add new Person object to array people and book
-			this.createPerson = function(firstName,lastName,email) 
-            {
+			this.createPerson = function(firstName,lastName,email) {
                 var person = new Person(firstName,lastName,email);
 				model.people.push(person);
                 console.log(model.people);
@@ -38,15 +37,13 @@ function Controller(model) {
 //takes in user input
 //sends to controller
 
-function View(controller)
-{
+function View(controller) {
     /* takes in input from html
     * accepts value 
     * passes value to controller
     * then passes to constructor
     */
-    this.createPerson = function()
-    {
+    this.createPerson = function() {
         var firstName = document.getElementById('fName').value;
         var lastName = document.getElementById('lName').value;
         var email = document.getElementById('email').value;
@@ -58,11 +55,9 @@ function View(controller)
     *somehow make it so when a person is added
     *the display updates to show the person added to the address book
     */
-    this.updateDisplay = function(Model)
-    {  
+    this.updateDisplay = function(Model) {  
         console.log(this.model.book);
-        for (i = 0; i < this.model.book.length; i++)
-        {
+        for (i = 0; i < book.length; i++){
         var para = document.createElement('P');
         var div = document.createElement('Div');
         para.appendChild('Div');
