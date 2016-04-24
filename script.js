@@ -3,7 +3,7 @@
 function Person (firstName,lastName,email) {
  this.first = firstName;
  this.last = lastName;
- this.email_address = address;
+ this.email_address = email;
 }
 
 
@@ -49,13 +49,13 @@ function View(controller)
     {
         var firstName = document.getElementById('fName').value;
         var lastName = document.getElementById('lName').value;
-        var email = document.getElementById('p_email').value;
+        var email = document.getElementById('email').value;
         controller.createPerson(firstName,lastName,email);
         
     }
        
     /*
-    *somehow make it so when a person/bussiness is added
+    *somehow make it so when a person is added
     *the display updates to show the person added to the address book
     */
     this.updateDisplay = function(Model)
@@ -66,7 +66,7 @@ function View(controller)
         var para = document.createElement('P');
         var div = document.createElement('Div');
         para.appendChild('Div');
-        document.getElementById('pDisplay')
+        document.getElementById('listDisplay')
         addressBook.appendChild(Model.book[i]);
         
         }
@@ -80,7 +80,7 @@ var model = new Model();
 var controller = new Controller(model);
 var view = new View(controller);
 
-document.getElementById('personBtn').onclick = function()
+document.getElementById('contacts-op-save').onclick = function()
 {
     view.createPerson();
     view.updateDisplay(model);
