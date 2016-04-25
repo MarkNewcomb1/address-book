@@ -14,7 +14,7 @@ function Person(firstName, lastName, email) {
 Person.prototype.model = function () {
 
 
-}
+};
 
 
 //controller takes in input from view
@@ -29,7 +29,7 @@ function Controller(model) {
         this.people.push(person);
         console.log(model.people);
         model.book.push(person);
-    }
+    };
 
 
 }
@@ -49,7 +49,7 @@ function View(controller) {
         var email = document.getElementById('email').value;
         controller.createPerson(firstName, lastName, email);
 
-    }
+    };
 
     /*
      *somehow make it so when a person is added
@@ -59,14 +59,14 @@ function View(controller) {
         console.log(this.model.book);
         for (i = 0; i < book.length; i++) {
             var para = document.createElement('P');
-            var div = document.createElement('Div');
-            para.appendChild('Div');
+            var div = document.createElement('div');
+            para.appendChild('div');
             document.getElementById('listDisplay')
             addressBook.appendChild(Model.book[i]);
 
         }
 
-    }
+    };
 
 }
 
@@ -78,4 +78,4 @@ var view = new View(controller);
 document.getElementById('contacts-op-save').onclick = function () {
     view.createPerson();
     view.updateDisplay(model);
-}
+};
