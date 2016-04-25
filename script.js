@@ -1,6 +1,8 @@
 
 // constructor for  a Person
 function Person (firstName,lastName,email) {
+ this.people = [];
+ this.book = [];
  this.first = firstName;
  this.last = lastName;
  this.email_address = email;
@@ -10,9 +12,8 @@ function Person (firstName,lastName,email) {
 /*model
 * empty array of objects 
 */
-function Model() {
-    this.people = [];
-    this.book = [];
+Person.prototype.model = function() {
+    
     
 }
 
@@ -26,7 +27,7 @@ function Controller(model) {
             //function to add new Person object to array people and book
 			this.createPerson = function(firstName,lastName,email) {
                 var person = new Person(firstName,lastName,email);
-				model.people.push(person);
+				this.people.push(person);
                 console.log(model.people);
                 model.book.push(person);
 			}
@@ -71,7 +72,7 @@ function View(controller) {
 }
 
 
-var model = new Model();
+var model = new Person.prototype.model();
 var controller = new Controller(model);
 var view = new View(controller);
 
