@@ -1,7 +1,5 @@
 // constructor for  a Person
 function Person(firstName, lastName, email) {
-    this.people = [];
-    this.book = [];
     this.first = firstName;
     this.last = lastName;
     this.email_address = email;
@@ -11,8 +9,9 @@ function Person(firstName, lastName, email) {
 /*model
  * empty array of objects 
  */
-Person.prototype.model = function () {
-
+function Model() {
+    this.people = [];
+    this.book = [];
 
 };
 
@@ -21,12 +20,14 @@ Person.prototype.model = function () {
 //uses constructor function to create persons
 //adds it to the model array
 function Controller(model) {
-
+    this.getBook = function() {
+        return model.book;
+    }
     //function to add to array of objects
     //function to add new Person object to array people and book
     this.createPerson = function (firstName, lastName, email) {
         var person = new Person(firstName, lastName, email);
-        this.people.push(person);
+        model.people.push(person);
         console.log(model.people);
         model.book.push(person);
     };
@@ -55,14 +56,15 @@ function View(controller) {
      *somehow make it so when a person is added
      *the display updates to show the person added to the address book
      */
-    this.updateDisplay = function (Model) {
-        console.log(this.model.book);
+    this.updateDisplay = function () {
+        var book = controller.getBook();
         for (i = 0; i < book.length; i++) {
             var para = document.createElement('P');
             var div = document.createElement('div');
-            para.appendChild('div');
-            document.getElementById('listDisplay')
-            addressBook.appendChild(Model.book[i]);
+            div.appendChild(para);
+            para.innerHTML = book[i].first;
+            para.innerHTML += " " + book[i].last;
+ document.getElementById('listDisplay').appendChild(div);
 
         }
 
@@ -71,7 +73,7 @@ function View(controller) {
 }
 
 
-var model = new Person.prototype.model();
+var model = new Model();
 var controller = new Controller(model);
 var view = new View(controller);
 
